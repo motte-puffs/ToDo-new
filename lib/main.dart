@@ -7,9 +7,47 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(TodoListAdapter());
   Hive.registerAdapter(TodoTaskAdapter());
-  await Hive.openBox<TodoList>('todoBox');
+
+  final box = await Hive.openBox<TodoList>('todoBox');
+
+  seedInitialData(box);
+
   runApp(const TodoApp());
 }
+
+void seedInitialData(Box<TodoList> box) {
+  if (box.isNotEmpty) return;
+
+  box.addAll([
+    TodoList(
+      name: 'College',
+      tasks: [
+        TodoTask(title: 'Finish electronics assignment'),
+        TodoTask(title: 'Submit DSA report'),
+        TodoTask(title: 'Python quiz',isStarred: true),
+        TodoTask(title: 'Operating Systems presentation', isCompleted: true),
+      ],
+    ),
+    TodoList(
+      name: 'Personal',
+      tasks: [
+        TodoTask(title: 'Buy groceries'),
+        TodoTask(title: 'Call mom', isStarred: true),
+        TodoTask(title: 'Book train tickets'),
+        TodoTask(title: 'Bike service', isCompleted: true),
+      ],
+    ),
+    TodoList(
+      name: 'Watch-List',
+      tasks: [
+        TodoTask(title: 'The Sopranos'),
+        TodoTask(title: 'Berserk'),
+        TodoTask(title: 'Reservoir dogs'),
+      ],
+    ),
+  ]);
+}
+
 
 class TodoApp extends StatelessWidget {
   const TodoApp({super.key});
@@ -145,7 +183,6 @@ Widget _zigzagView() {
               decoration: BoxDecoration(
                 color: const Color(0xFF1c1c1b),
 
-                // 👇 ONLY inner corners rounded
                 borderRadius: BorderRadius.only(
                   topLeft:
                       isLeft ? Radius.zero : const Radius.circular(16),
@@ -157,7 +194,6 @@ Widget _zigzagView() {
                       isLeft ? const Radius.circular(16) : Radius.zero,
                 ),
 
-                // 👇 ONLY inner edge bordered
                 border: Border(
                   left: isLeft
                       ? BorderSide.none
