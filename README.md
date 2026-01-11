@@ -1,16 +1,54 @@
-# todo_app2
+# ToDo
 
-A new Flutter project.
+A minimal, dark-themed todo app built with Flutter.
+
+Designed for focus and speed. Clean layout, offline-first, no distractions.
+
+---
+
+## Features
+
+- Zigzag list view emerging from screen edges
+- Grid view for quick overview
+- Star important tasks
+- Mark tasks as completed
+- Dynamic sections (Important / Tasks / Completed)
+- Edit list names and task names
+- Persistent local storage using Hive
+- Clean dark UI with JetBrains Mono font
+- Android support
+
+---
+
+## Screens
+
+- Home: list previews (zigzag or grid)
+- List details: full task management
+- Data persists across app restarts
+
+---
+
+## Tech Stack
+
+- Flutter
+- Dart
+- Hive (local database)
+- Material Design
+- JetBrains Mono font
+
+---
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Run locally
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+flutter run
+```
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Download here :
+- [Android](https://github.com/motte-puffs/ToDo-new/releases/latest)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
